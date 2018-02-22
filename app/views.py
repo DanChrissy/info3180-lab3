@@ -40,8 +40,9 @@ def contact():
             msg = Message("%s" %subject, sender = ("%s" %name, "%s" %email), recipients = ["danscott-d1ddfd@inbox.mailtrap.io"] )
             msg.body = message
             mail.send(msg)
-            redirect(url_for('home'))
-            flash("Your email was sent successfully")
+        
+        flash("Your email was sent successfully", 'success')
+        return redirect(url_for('home'))
     return render_template('contact.html', form = form)
 
 ###
